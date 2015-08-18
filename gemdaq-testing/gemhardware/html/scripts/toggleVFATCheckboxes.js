@@ -1,5 +1,6 @@
 $(document).ready( function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	var registerSetBoxes = [$("#CR0Set"),$("#CR1Set"),$("#CR2Set"),$("#CR3Set"),
 				$("#SetIPreampIn"),$("#SetIPreampFeed"),$("#SetIPreampOut"),
@@ -23,6 +24,8 @@ $(document).ready( function () {
 		};
 	    });
 >>>>>>> ca9bdefa5f3bd1293595e7cff201fd9c188ba9aa
+=======
+>>>>>>> upstream/release-v1
     });
 
 function toggleVFATCheckboxes (isON) {
