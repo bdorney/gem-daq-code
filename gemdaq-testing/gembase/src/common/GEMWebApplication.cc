@@ -21,8 +21,8 @@ gem::base::GEMWebApplication::GEMWebApplication(gem::base::GEMFSMApplication* ge
   throw (xdaq::exception::Exception) :
   gemLogger_(gemFSMApp->getApplicationLogger()),
   gemMonitorP_(gemFSMApp->getMonitor()),
-  gemFSMAppP_(gemFSMApp),
-  gemAppP_(gemFSMApp),
+  gemFSMAppP_( gemFSMApp),
+  gemAppP_(    gemFSMApp),
   is_working_     (false),
   is_initialized_ (false),
   is_configured_  (false),
@@ -36,8 +36,8 @@ gem::base::GEMWebApplication::GEMWebApplication(gem::base::GEMApplication* gemAp
   throw (xdaq::exception::Exception) :
   gemLogger_(gemApp->getApplicationLogger()),
   gemMonitorP_(gemApp->getMonitor()),
-  gemFSMAppP_(0),
-  gemAppP_(gemApp),
+  gemFSMAppP_( NULL),
+  gemAppP_(    gemApp),
   is_working_     (false),
   is_initialized_ (false),
   is_configured_  (false),
@@ -49,16 +49,18 @@ gem::base::GEMWebApplication::GEMWebApplication(gem::base::GEMApplication* gemAp
 
 gem::base::GEMWebApplication::~GEMWebApplication()
 {
-  if (gemMonitorP_!=NULL)
+  /*
+    if (gemMonitorP_!=NULL)
     delete gemMonitorP_;
-  if (gemFSMAppP_!=NULL)
+    if (gemFSMAppP_!=NULL)
     delete gemFSMAppP_;
-  if (gemAppP_!=NULL)
+    if (gemAppP_!=NULL)
     delete gemAppP_;
 
-  gemMonitorP_ = NULL;
-  gemFSMAppP_  = NULL;
-  gemAppP_     = NULL;
+    gemMonitorP_ = NULL;
+    gemFSMAppP_  = NULL;
+    gemAppP_     = NULL;
+  */
 }
 
 void gem::base::GEMWebApplication::webRedirect(xgi::Input *in, xgi::Output *out)
@@ -126,7 +128,7 @@ void gem::base::GEMWebApplication::webInitialize(xgi::Input * in, xgi::Output * 
     INFO("gemFSMAppP_ non-zero");
     // try {
     //   gemFSMAppP_->fireEvent("Initialize");
-    // } catch( toolbox::fsm::exception::Exception& e ){
+    // } catch( toolbox::fsm::exception::Exception& e ) {
     //   XCEPT_RETHROW( xgi::exception::Exception, "Initialize failed", e );
     //}
   }
@@ -142,7 +144,7 @@ void gem::base::GEMWebApplication::webEnable(xgi::Input * in, xgi::Output * out)
     INFO("gemFSMAppP_ non-zero");
     //try {
     //  gemFSMAppP_->fireEvent("Enable");
-    //} catch( toolbox::fsm::exception::Exception& e ){
+    //} catch( toolbox::fsm::exception::Exception& e ) {
     //  XCEPT_RETHROW( xgi::exception::Exception, "Enable failed", e );
     //}
   }
@@ -158,7 +160,7 @@ void gem::base::GEMWebApplication::webConfigure(xgi::Input * in, xgi::Output * o
     INFO("gemFSMAppP_ non-zero");
     //try{
     //  gemFSMAppP_->fireEvent("Configure");
-    //} catch( toolbox::fsm::exception::Exception& e ){
+    //} catch( toolbox::fsm::exception::Exception& e ) {
     //  XCEPT_RETHROW( xgi::exception::Exception, "Configure failed", e );
     //}
   }
@@ -174,7 +176,7 @@ void gem::base::GEMWebApplication::webStart(xgi::Input * in, xgi::Output * out)
     INFO("gemFSMAppP_ non-zero");
     //try{
     //  gemFSMAppP_->fireEvent("Start");
-    //} catch( toolbox::fsm::exception::Exception& e ){
+    //} catch( toolbox::fsm::exception::Exception& e ) {
     //  XCEPT_RETHROW( xgi::exception::Exception, "Start failed", e );
     //}
   }
@@ -189,7 +191,7 @@ void gem::base::GEMWebApplication::webPause(xgi::Input * in, xgi::Output * out)
     INFO("gemFSMAppP_ non-zero");
     //try{
     //  gemFSMAppP_->fireEvent("Pause");
-    //} catch( toolbox::fsm::exception::Exception& e ){
+    //} catch( toolbox::fsm::exception::Exception& e ) {
     //  XCEPT_RETHROW( xgi::exception::Exception, "Pause failed", e );
     //}
   }
@@ -205,7 +207,7 @@ void gem::base::GEMWebApplication::webResume(xgi::Input * in, xgi::Output * out)
     INFO("gemFSMAppP_ non-zero");
     //try{
     //  gemFSMAppP_->fireEvent("Resume");
-    //} catch( toolbox::fsm::exception::Exception& e ){
+    //} catch( toolbox::fsm::exception::Exception& e ) {
     //  XCEPT_RETHROW( xgi::exception::Exception, "Resume failed", e );
     //}
   }
@@ -221,7 +223,7 @@ void gem::base::GEMWebApplication::webStop(xgi::Input * in, xgi::Output * out)
     INFO("gemFSMAppP_ non-zero");
     //try{
     //  gemFSMAppP_->fireEvent("Stop");
-    //} catch( toolbox::fsm::exception::Exception& e ){
+    //} catch( toolbox::fsm::exception::Exception& e ) {
     //  XCEPT_RETHROW( xgi::exception::Exception, "Stop failed", e );
     //}
   }
@@ -237,7 +239,7 @@ void gem::base::GEMWebApplication::webHalt(xgi::Input * in, xgi::Output * out)
     INFO("gemFSMAppP_ non-zero");
     //try{
     //  gemFSMAppP_->fireEvent("Halt");
-    //} catch( toolbox::fsm::exception::Exception& e ){
+    //} catch( toolbox::fsm::exception::Exception& e ) {
     //  XCEPT_RETHROW( xgi::exception::Exception, "Halt failed", e );
     //}
   }
@@ -253,7 +255,7 @@ void gem::base::GEMWebApplication::webReset(xgi::Input * in, xgi::Output * out)
     INFO("gemFSMAppP_ non-zero");
     //try{
     //  gemFSMAppP_->fireEvent("Reset");
-    //} catch( toolbox::fsm::exception::Exception& e ){
+    //} catch( toolbox::fsm::exception::Exception& e ) {
     //  XCEPT_RETHROW( xgi::exception::Exception, "Reset failed", e );
     //}
   }
